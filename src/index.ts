@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
 
@@ -263,7 +263,7 @@ async function tryProviders(messages: Message[], model?: string): Promise<string
 // ============================================
 
 // OpenAI-compatible chat completions endpoint
-app.post('/v1/chat/completions', async (req, res) => {
+app.post('/v1/chat/completions', async (req: Request, res: Response) => {
   try {
     const { messages, model, stream = false }: ChatRequest = req.body;
 
@@ -355,7 +355,7 @@ app.post('/v1/chat/completions', async (req, res) => {
 });
 
 // List models endpoint
-app.get('/v1/models', (req, res) => {
+app.get('/v1/models', (req: Request, res: Response) => {
   const models = providers
     .filter(p => p.enabled)
     .flatMap(p => p.models.map(model => ({
@@ -372,7 +372,7 @@ app.get('/v1/models', (req, res) => {
 });
 
 // Health check
-app.get('/health', (req, res) => {
+app.get('/health', (req: Request, res: Response) => {
   res.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
@@ -385,7 +385,7 @@ app.get('/health', (req, res) => {
 });
 
 // Root endpoint
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.json({
     message: 'Free AI Proxy - OpenAI Compatible API',
     endpoints: {
@@ -402,23 +402,21 @@ app.get('/', (req, res) => {
 // START SERVER
 // ============================================
 
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`
 ╔═══════════════════════════════════════════╗
 ║   🚀 Free AI Proxy Server Running        ║
 ╚═══════════════════════════════════════════╝
 
-📡 Server: http://localhost:${PORT}
-🔗 API Base: http://localhost:${PORT}/v1
+📡 Server: http://0.0.0.0:${PORT}
+🔗 API Base: http://0.0.0.0:${PORT}/v1
 
 Enabled Providers:
 ${providers.filter(p => p.enabled).map(p => `  ✓ ${p.name}`).join('\n')}
 
-Example Usage:
-  curl ${process.env.RAILWAY_PUBLIC_DOMAIN || `http://localhost:${PORT}`}/v1/chat/completions \\
-    -H "Content-Type: application/json" \\
-    -d '{"messages":[{"role":"user","content":"Hello!"}]}'
+Environment: ${process.env.NODE_ENV || 'development'}
+Railway Domain: ${process.env.RAILWAY_PUBLIC_DOMAIN || 'Not set'}
   `);
 });
