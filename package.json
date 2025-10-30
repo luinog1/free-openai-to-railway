@@ -1,20 +1,6 @@
 {
-  "name": "free-ai-proxy",
-  "version": "1.0.0",
-  "description": "Free AI Proxy with multiple providers",
-  "main": "server.js",
-  "type": "module",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node server.js"
-  },
-  "keywords": ["ai", "proxy", "openai"],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "start": "node src/server.js"
   }
 }
