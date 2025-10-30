@@ -1,0 +1,18 @@
+{
+  "name": "free-ai-proxy",
+  "version": "1.0.0",
+  "description": "OpenAI-compatible proxy server with multiple free AI providers and automatic failover.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "license": "MIT"
+}
