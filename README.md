@@ -14,6 +14,13 @@ Production-ready OpenAI-compatible API proxy with 7 free AI providers and automa
 
 ## Quick Deploy
 
+Deploy to Railway in just a few seconds:
+
+1. Click the button below and create a new Railway project.
+2. When prompted for the repo, select this repository.
+3. Railway detects the Node.js project automatically; no build step is needed.
+4. Deploy the service – the default `start` script boots the Express server on port 3000.
+
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template)
 
 ## Usage
