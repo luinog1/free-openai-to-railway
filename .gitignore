@@ -1,35 +1,4 @@
-# Free AI Proxy 🚀
-
-Proxy OpenAI-compatible con 7 providers gratuitos y failover automático.
-
-## Características
-
-✅ 7 Providers de IA gratuitos
-✅ 30+ Modelos disponibles
-✅ Compatible con API de OpenAI
-✅ Soporte para streaming
-✅ Failover automático
-✅ Logging completo
-
-## Deploy en Railway
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template)
-
-## Uso
-```bash
-curl https://tu-app.up.railway.app/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{"messages":[{"role":"user","content":"Hola!"}]}'
-```
-
-## Endpoints
-
-- POST `/v1/chat/completions` - Chat
-- POST `/v1/completions` - Completions
-- GET `/v1/models` - Listar modelos
-- GET `/v1/models/:model` - Info de modelo
-- GET `/health` - Health check
-
-## Licencia
-
-MIT
+node_modules/
+.env
+*.log
+.DS_Store
