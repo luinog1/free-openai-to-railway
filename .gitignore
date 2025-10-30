@@ -1,40 +1,35 @@
-# Dependencies
-node_modules/
+# Free AI Proxy 🚀
 
-# Build
-dist/
+Proxy OpenAI-compatible con 7 providers gratuitos y failover automático.
 
-# Environment
-.env
-.env.local
-.env.production
+## Características
 
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+✅ 7 Providers de IA gratuitos
+✅ 30+ Modelos disponibles
+✅ Compatible con API de OpenAI
+✅ Soporte para streaming
+✅ Failover automático
+✅ Logging completo
 
-# OS
-.DS_Store
-Thumbs.db
+## Deploy en Railway
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template)
 
-# Railway
-.railway/
+## Uso
+```bash
+curl https://tu-app.up.railway.app/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"messages":[{"role":"user","content":"Hola!"}]}'
+```
 
-# Testing
-coverage/
-.nyc_output/
+## Endpoints
 
-# Misc
-.cache/
-temp/
-tmp/
+- POST `/v1/chat/completions` - Chat
+- POST `/v1/completions` - Completions
+- GET `/v1/models` - Listar modelos
+- GET `/v1/models/:model` - Info de modelo
+- GET `/health` - Health check
+
+## Licencia
+
+MIT

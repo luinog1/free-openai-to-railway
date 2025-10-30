@@ -5,25 +5,22 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node --experimental-modules dist/index.js",
     "start": "node dist/index.js",
-    "dev": "tsx watch src/index.ts"
+    "postinstall": "tsc"
   },
-  "keywords": ["ai", "proxy", "openai", "free"],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
-    "express": "4.18.2",
-    "cors": "2.8.5"
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
-    "@types/express": "4.17.21",
-    "@types/node": "20.10.5",
-    "@types/cors": "2.8.17",
-    "typescript": "5.3.3",
-    "tsx": "4.7.0"
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.5",
+    "@types/cors": "^2.8.17",
+    "typescript": "^5.3.3"
   },
   "engines": {
-    "node": "18.x"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
